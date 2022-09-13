@@ -3,13 +3,17 @@
 #include <conio.h>
 
 using namespace std;
+
 bool gameOver;
 const int width = 20;
 const int height = 20;
 int x, y, fruitX, fruitY,score;
-enum eDirection{STOP=0,LEFT,RIGHT,DOWN,UP};
+
+enum eDirection{STOP = 0, LEFT, RIGHT, DOWN, UP};
 eDirection dir;
-void setup() {
+
+void setup()
+{
 	gameOver = false;
 	x = width / 2;
 	y = height / 2;
@@ -17,7 +21,9 @@ void setup() {
 	fruitY = rand() % height;
 	score = 0;
 }
-void draw() {
+
+void draw()
+{
 	system("cls");//for linux ("clear");
 	for (int i = 0; i < width+2; i++) {
 		cout << "#";
@@ -50,7 +56,8 @@ void draw() {
 		
 	}
 
-void input() {
+void input()
+{
 	if (_kbhit) {
 		switch (_getch()) {
 		case 's':
@@ -73,11 +80,11 @@ void input() {
 		}}
 	
 	}
-void logic() {
 
+void logic()
+{
 	switch (dir) {
-	case LEFT:
-		
+	case LEFT:	
 		x--;
 		break;
 	case RIGHT:
@@ -101,7 +108,9 @@ void logic() {
 		fruitY = rand() % height;
 	}
 }
-int main() {
+
+int main()
+{
 	setup();
 	while (!gameOver) {
 		draw();
